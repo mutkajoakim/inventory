@@ -8,6 +8,10 @@ app.get("/",(req,res) => {
 
 });
 
+app.get("/site",(req,res)=> {
+    res.send("Here would come warehouse info for all our warehouses.");
+});
+
 app.listen(port,() =>{
     console.log('listening on port localhost:'+port);
 });
