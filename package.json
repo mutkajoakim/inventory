@@ -18,7 +18,9 @@
   },
   "homepage": "https://github.com/mutkajoakim/inventory#readme",
   "dependencies": {
-    "express": "^4.17.1"
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "mongoose": "^5.11.18"
   },
   "engines": {
     "node": "v14.16.0"

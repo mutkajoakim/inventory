@@ -1,6 +1,16 @@
 const express = require("express");
 const app = express();
+const mongoose = require('mongoose');
+require('dotenv/config')
+
+//mongodb+srv:inventoryapp:7c8eOdUMISDvgvII@inventorycloudnative.zgxkg.mongodb.net/myFirstDatabase?retryWrites=true&w=majority
 let port = process.env.PORT || 3000;
+
+const sitesRoute = require('./routes/sites');
+const invRoute = require('./routes/inventory');
+
+app.use('/sites', sitesRoute);
+app.use('/inventory', invRoute);
 
 
 app.get("/",(req,res) => {
@@ -8,10 +18,14 @@ app.get("/",(req,res) => {
 
 });
 
-app.get("/site",(req,res)=> {
-    res.send("Here would come warehouse info for all our warehouses.");
-});
+
+
+mongoose.connect(process.env.DB_connection,
+    { useUnifiedTopology: true },
+    ()=>{console.log("connected to mongodb");
+})
 
 app.listen(port,() =>{
     console.log('listening on port localhost:'+port);
 });
+
