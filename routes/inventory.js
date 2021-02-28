@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 const Inv = require('../models/inventory');
 
-productID = "placeholder";
+
 router.get("/", async(req,res) => {
     try{
         const inventory = await Inv.find();
@@ -12,7 +12,7 @@ router.get("/", async(req,res) => {
     }
 });
 
-router.get("/"+productID,(req,res)=>{
+router.get('/:productID',(req,res)=>{
     res.send("Here would come info for a specific product");
 })
 
