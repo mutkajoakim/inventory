@@ -11,8 +11,13 @@ router.get("/", async(req,res) => {
     }
 });
 
-router.get('/:siteID',(req,res)=>{
-    res.send("Here would come info for a specific site");
+router.get('/:siteID', async (req,res)=>{
+   try{
+    const site = await Site.findById(req.params.siteID);
+    res.json(site);
+   }catch(err){
+        res.json({message: err});
+   }
 });
 
 router.post('/', async (req,res) =>{
