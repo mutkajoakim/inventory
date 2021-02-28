@@ -1,9 +1,10 @@
 const express = require("express");
 const app = express();
 const mongoose = require('mongoose');
+const bodyParser = require('body-parser');
 require('dotenv/config')
 
-//mongodb+srv:inventoryapp:7c8eOdUMISDvgvII@inventorycloudnative.zgxkg.mongodb.net/myFirstDatabase?retryWrites=true&w=majority
+app.use(bodyParser.json());
 let port = process.env.PORT || 3000;
 
 const sitesRoute = require('./routes/sites');

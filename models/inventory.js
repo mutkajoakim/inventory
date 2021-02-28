@@ -22,3 +22,5 @@ const inventSChema = mongoose.Schema({
 inventSChema.virtual('totalstock').get( function() {
         return this.location0 + this.location1 + this.location2
 });
+
+module.exports = mongoose.model('Inventory', inventSChema)
