@@ -7,7 +7,7 @@ router.get("/", async(req,res) => {
         const site = await Site.find();
         res.json(site)
     }catch(err){
-        res.json({message : err});
+        res.json(err.message);
     }
 });
 //get the info for one specific site by ID eg. /site/location0
@@ -16,7 +16,7 @@ router.get('/:siteID', async (req,res)=>{
     const site = await Site.findById(req.params.siteID);
     res.json(site);
    }catch(err){
-        res.json({message: err});
+        res.json(err.message);
    }
 });
 //creates a new site (this does not add a new site to the inventory database, as they are not connected)
@@ -32,7 +32,7 @@ router.post('/', async (req,res) =>{
    const savedSite = await site.save();
             res.json(savedSite);
            }catch(err)  {
-                res.json({message: err});
+                res.json(err.message);
            };
 });
 //update the information for one site by ID (all fields are required)
@@ -46,7 +46,7 @@ router.patch('/:siteID', async (req,res) =>{
                 country: req.body.country,}});
           res.json(updatedsite);  
         }catch(err){
-            res.json({message: err});
+            res.json(err.message);
         }
     });
 

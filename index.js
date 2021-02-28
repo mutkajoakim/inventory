@@ -15,8 +15,7 @@ app.use('/inventory', invRoute);
 
 
 app.get("/",(req,res) => {
-    res.send("Hello WOrld");
-
+    res.send("Hello World");
 });
 
 

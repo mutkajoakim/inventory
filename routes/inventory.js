@@ -8,16 +8,16 @@ router.get("/", async(req,res) => {
         const inventory = await Inv.find();
         res.json(inventory)
     }catch(err){
-        res.json({message : err});
+        res.json(err.message);
     }
 });
 //show product stock for one product by ID eg. /inventory/<productID>
 router.get('/:prodID', async (req,res)=>{
     try{
-     const product = await Site.findById(req.params.prodID);
+     const product = await Inv.findById(req.params.prodID);
      res.json(product);
     }catch(err){
-         res.json({message: err});
+         res.json(err.message);
     }
  });
 //add new product to database
@@ -33,7 +33,7 @@ router.post('/', async (req,res) =>{
    const savedInv = await inventory.save();
             res.json(savedInv);
            }catch(err)  {
-                res.json({message: err});
+                res.json(err.message);
            };
 });
 /*modify stock amount of prudct in database
@@ -62,7 +62,7 @@ router.patch('/:productID', async (req,res) =>{
                     location2: req.body.location2,}});
           res.json(updatedProd);  
         }catch(err){
-            res.json({message: err});
+            res.json(err.message);
         }
     });
 module.exports = router;
