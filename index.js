@@ -22,7 +22,7 @@ app.get("/",(req,res) => {
 
 
 mongoose.connect(process.env.DB_connection,
-    { useUnifiedTopology: true },
+    { useUnifiedTopology: true},
     ()=>{console.log("connected to mongodb");
 })
 
