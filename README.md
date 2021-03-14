@@ -8,9 +8,11 @@ our inventory api can be found here: https://inventory-cloud-native.herokuapp.co
 -returns information on all warehouse locations
 ## GET /sites/(id)
 -returns information on specific location
-## POST /inventory {"_id":"","location0":Num,"location1":Num,"location2":Num}
+## POST /inventory 
+{"_id":"","location0":Num,"location1":Num,"location2":Num}
 -allows creation of new items 
-## POST /sites  {"_id":"","address":"","city":"","zip":"","country":""}
+## POST /sites  
+{"_id":"","address":"","city":"","zip":"","country":""}
 -allows creation of new sites  
 ## PATCH /inventory
 -allows changes to be made in current inventory
